@@ -6,8 +6,7 @@ const schema = new mongoose.Schema({
     required: [true, "Please tell us your name"],
     type: String,
     trim: true,
-    unique: true,
-    maxlength: [50, "Max length exceeded"],
+    maxLength: [50, "Max length exceeded"],
     minlength: [1, "min length exceeded"],
   },
   email: {
@@ -15,13 +14,13 @@ const schema = new mongoose.Schema({
     type: String,
     trim: true,
     unique: true,
-    maxlength: [50, "Max length exceeded"],
+    maxLength: [50, "Max length exceeded"],
     minlength: [1, "min length exceeded"],
   },
   password: {
     required: [true, "Please tell us your password"],
     type: String,
-    maxlength: [20, "Max length exceeded"],
+    maxLength: [20, "Max length exceeded"],
     minlength: [3, "min length exceeded"],
   },
 });

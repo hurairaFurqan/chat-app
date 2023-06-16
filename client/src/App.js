@@ -1,39 +1,22 @@
 import "./App.css";
+import Layout from "./Pages/Layout";
+import "./App.css"
 
-import { useState } from "react";
-import Chat from "./Chat";
-import { socket } from "./Socket";
+import { Routes, Route } from "react-router-dom";
+import MessageBox from "./Pages/MessageBox";
+import Register from "./Pages/Register";
+import Login from "./Pages/Login";
+
 function App() {
-  const [room, setRoom] = useState("");
-  const [userName, setUsername] = useState("");
-  const [showChat, setShowChat] = useState(false);
-
-  const joinRoom = () => {
-    if (room !== "" && userName !== "") {
-      socket.emit("join_room", room);
-    }
-  };
   return (
-    <div className="App">
-      <input
-        placeholder="John..."
-        type="text"
-        onChange={(e) => {
-          setUsername(e.target.value);
-        }}
-      ></input>
-      <input
-        placeholder="Room ID"
-        type="text"
-        onChange={(e) => {
-          setRoom(e.target.value);
-        }}
-      ></input>
-
-      <button onClick={joinRoom}>Join A room</button>
-
-      <Chat userName={userName} room={room}></Chat>
-    </div>
+    <>
+      <Layout />
+      <Routes>
+        <Route path="/" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/chat" element={<MessageBox></MessageBox>}></Route>
+      </Routes>
+    </>
   );
 }
 

@@ -7,5 +7,5 @@ const router = express.Router();
 
 router.use(protect);
 
-router.route("/getme").get(userController.getMe, userController.getUser);
+router.route("/getMe").get(userController.getMe, userController.getUser);
 module.exports = router;
