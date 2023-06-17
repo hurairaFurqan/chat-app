@@ -19,7 +19,7 @@ const Register = () => {
       .post(`${API_BASEURL_AUTH}/signUp`, signUpData)
       .then((response) => {
         console.log(response.data);
-        navigate("/chat");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.message);

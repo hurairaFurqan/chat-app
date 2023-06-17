@@ -26,7 +26,7 @@ const Login = () => {
     });
   };
 
-  const handleSignUP = () => {
+  const handleSignUp = () => {
     navigate("/register");
   };
   return (
@@ -62,7 +62,7 @@ const Login = () => {
             <button type="submit" className="btn btn-primary mx-4">
               Log In
             </button>
-            <Button onClick={handleSignUP} variant="outline-primary">
+            <Button onClick={handleSignUp} variant="outline-primary">
               Click here to SignUp
             </Button>
           </div>

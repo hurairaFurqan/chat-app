@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { socket } from "../Socket";
 import ScrollToBottom from "react-scroll-to-bottom";
+import axios from "axios";
+import { API_BASEURL_CHAT } from "../constants";
 
 function Chat({ userName, room }) {
   const [message, setMessage] = useState("");
@@ -24,6 +26,16 @@ function Chat({ userName, room }) {
           new Date(Date.now()).getMinutes(),
       };
       await socket.emit("send_msg", message_data);
+
+      await axios
+        .post(`${API_BASEURL_CHAT}/msg`, message_data)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
       setMessageList((list) => [...list, message_data]);
       setMessage("");
     }

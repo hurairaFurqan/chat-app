@@ -38,11 +38,12 @@ io.on("connection", (socket) => {
 const dbConnect = require("./utilities/dbConnect");
 const authRouter = require("./routes/auth.router");
 const userRouter = require("./routes/user.router");
+const chatRouter = require("./routes/chat.router");
 dbConnect();
 
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
-
+app.use("/chat", chatRouter);
 app.use("*", (req, res) => {
   console.log("in * condition of app.use");
   res.status(500).json(`Internal Server Error at ${req.originalUrl}`);
